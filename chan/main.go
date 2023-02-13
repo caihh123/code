@@ -3,11 +3,15 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
+	"runtime/trace"
 	"sort"
 	"time"
 )
 
 func main() {
+	trace.Start(os.Stderr)
+	defer trace.Stop()
 	type ChanStruct struct {
 		StartTime int64
 		Index     int
